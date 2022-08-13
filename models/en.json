@@ -1,0 +1,52 @@
+{
+  "invocation": "my test app",
+  "version": "4.0",
+  "intents": {
+    "StartGameIntent": {
+      "phrases": [
+        "start game"
+      ]
+    },
+    "CancelGameIntent": {
+      "phrases": [
+        "end game",
+        "cancel game",
+        "game over"
+      ]
+    },
+    "CorrectAnswerIntent": {
+      "phrases": [
+        "correct answer",
+        "correct"
+      ]
+    },
+    "WrongAnswerIntent": {
+      "phrases": [
+        "wrong answer",
+        "wrong"
+      ]
+    },
+    "SubscribeIntent": {
+      "phrases": [
+        "subscribe me",
+        "add subscription",
+        "subscription"
+      ]
+    },
+    "ListBadgesIntent": {
+      "phrases": [
+        "what are my badges",
+        "list my badges",
+        "my badges",
+        "badges"
+      ]
+    },
+    "ScoreIntent": {
+      "phrases": [
+        "what's my score",
+        "my score",
+        "score"
+      ]
+    }
+  }
+}

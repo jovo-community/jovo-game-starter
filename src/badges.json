@@ -1,0 +1,128 @@
+[
+    {
+        "id": "b01",
+        "name": "First Timer",
+        "description": "First game started",
+        "imageUrl": "https://example.com/images/b01.png",
+        "points": 1
+    },
+    {
+        "id": "b02",
+        "name": "High Five",
+        "description": "Fifth game ended",
+        "imageUrl": "https://example.com/images/b02.png",
+        "points": 5
+    },
+    {
+        "id": "b03",
+        "name": "Members Only",
+        "description": "First game started as a subscribed player",
+        "imageUrl": "https://example.com/images/b03.png",
+        "points": 0
+    },
+    {
+        "id": "b04",
+        "name": "Happy New Year",
+        "description": "Play a game on New Year's Day",
+        "imageUrl": "https://example.com/images/b041.png",
+        "points": 0
+    },
+    {
+        "id": "b05",
+        "name": "Hat Trick",
+        "description": "Win 3 games in a day",
+        "imageUrl": "https://example.com/images/b05.png",
+        "points": 0
+    },
+    {
+        "id": "b06",
+        "name": "Win Win",
+        "description": "Has earned badges b01 and b05",
+        "imageUrl": "https://example.com/images/b06.png",
+        "points": 0
+    },
+    {
+        "id": "b07",
+        "name": "Big 10",
+        "description": "Every 10th game completed but not multiples of 20, 50, 100.",
+        "imageUrl": "https://example.com/images/b07.png",
+        "points": 0
+    },
+    {
+        "id": "b08",
+        "name": "Big 20",
+        "description": "Every 20th game completed but not multiples of 100.",
+        "imageUrl": "https://example.com/images/b08.png",
+        "points": 0
+    },
+    {
+        "id": "b09",
+        "name": "Big 50",
+        "description": "Every 50th game completed but not multiples of 100.",
+        "imageUrl": "https://example.com/images/b09.png",
+        "points": 0
+    },
+    {
+        "id": "b10",
+        "name": "Big 100",
+        "description": "Every 100th game.",
+        "imageUrl": "https://example.com/images/b10.png",
+        "points": 10
+    },
+    {
+        "id": "b11",
+        "name": "Morning",
+        "description": "Complete a game between 5am and 11am",
+        "imageUrl": "https://example.com/images/b11.png",
+        "points": 0
+    },
+    {
+        "id": "b12",
+        "name": "Midday",
+        "description": "Complete a game between 11am and 3pm",
+        "imageUrl": "https://example.com/images/b12.png",
+        "points": 0
+    },
+    {
+        "id": "b13",
+        "name": "Afternoon",
+        "description": "Complete a game between 3pm and 6pm",
+        "imageUrl": "https://example.com/images/b13.png",
+        "points": 0
+    },
+    {
+        "id": "b14",
+        "name": "Evening",
+        "description": "Complete a game between 6pm and 5am",
+        "imageUrl": "https://example.com/images/b14.png",
+        "points": 0
+    },
+    {
+        "id": "b15",
+        "name": "Weekend Warrior",
+        "description": "Win a game on the weekend",
+        "imageUrl": "https://example.com/images/b15.png",
+        "points": 0
+    },
+    {
+        "id": "b16",
+        "name": "Perfection!",
+        "description": "Win a game with a perfect score.",
+        "imageUrl": "https://example.com/images/b16.png",
+        "points": 0
+    },
+    {
+        "id": "b17",
+        "name": "Perfect Loser",
+        "description": "Lose a game with 0 correct answers.",
+        "imageUrl": "https://example.com/images/b17.png",
+        "points": 0
+    },
+    {
+        "id": "b18",
+        "name": "Historian",
+        "description": "Answer 5 history questions correctly.",
+        "imageUrl": "https://example.com/images/b18.png",
+        "points": 0
+    }
+]
