@@ -53,6 +53,7 @@ const app = new App({
     }),
     new PlayFabPlugin({
       titleId: '',
+      developerSecretKey: '',
       login: {
         extendedProfileKey: 'extendedProfile',
         maxNewProfileRetries: 2,
@@ -194,6 +195,7 @@ async function onNewProfile(jovo: Jovo) {
     extendedProfile: {
       color: profile.color,
       locale: jovo.$request.getLocale(),
+      platformUserId: jovo.$user.id,
     },
   } as ProfileInfo;
 

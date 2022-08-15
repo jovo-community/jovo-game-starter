@@ -18,7 +18,7 @@
   "dependencies": {
     "@jovo-community/plugin-badgerific": "^1.0.1",
     "@jovo-community/plugin-playergenerator": "^1.0.1",
-    "@jovo-community/plugin-playfab": "^1.0.0",
+    "@jovo-community/plugin-playfab": "^1.1.1",
     "@jovo-community/plugin-timezone": "^4.0.1",
     "@jovotech/db-filedb": "^4.0.0",
     "@jovotech/framework": "^4.0.0",

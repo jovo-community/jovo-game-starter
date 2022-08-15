@@ -58,10 +58,10 @@ export class GlobalComponent extends BaseComponent {
   }
 
   async LeaderboardIntent() {
-    const leaderboard = await this.$playfab.getLeaderboard('score');
+    const leaderboard = await this.$playfab.getLeaderboard('score') as any;
 
     if (leaderboard) {
-    const currentPlayerIndex = leaderboard?.findIndex((p) => p.IsCurrentPlayer);   
+    const currentPlayerIndex = leaderboard?.findIndex((p: any) => p.IsCurrentPlayer);   
     const currentPlayer = leaderboard[currentPlayerIndex];
     if (currentPlayer.Position === 0) {
       this.$send(`Congratulations! You are ranked #1 on the leaderboard with a score of ${currentPlayer.StatValue}.`);
