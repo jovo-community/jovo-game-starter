@@ -6,10 +6,12 @@ import { App, Jovo } from '@jovotech/framework';
 
 import { GlobalComponent } from './components/GlobalComponent';
 import { GameComponent } from './components/GameComponent';
-import { GameEndReason, ReadonlyBadgeProperties, ReadonlyEarnedBadge } from 'badgerific';
 
 import badgeRules from './badgeRules.json';
-import badges from './badges.json';
+
+import en from './i18n/en.json';
+import { gameInitHook } from './hooks/gameInitHook';
+import { badgeCallbacksHook } from './hooks/badgeCallbacksHook';
 
 /*
 |--------------------------------------------------------------------------
@@ -103,85 +105,16 @@ const app = new App({
   |
   */
   logging: true,
+
+  i18n: {
+    resources: {
+      en,
+    },
+  },
 });
 
-app.hook('before.dialogue.start', (jovo: Jovo): void => {
-  if (jovo.$user.isNew) {
-    // jovo.$user.data.score = 0;
-  }
-});
-
-app.hook('after.dialogue.start', (jovo: Jovo): void => {
-  // onBadgeEarned
-  jovo.$badges.onBadgeEarned = async (badge: ReadonlyEarnedBadge) => {
-    console.log(`Badgerific:onBadgeEarned ${badge.id}`);
-
-    // use external badge info to earn points
-    const badgeInfo = badges.find((b) => b.id === badge.id);
-    if (badgeInfo && badgeInfo.points > 0) {
-      // points for earning badges
-      // but this could be credits, coins, or something else (or a combination)
-      // jovo.$user.data.score += badgeInfo.points;
-      let score = await jovo.$playfab.getStat('score') ?? 0;
-      score += badgeInfo.points;
-
-      await jovo.$playfab.updateStat('score', score);
-    }
-  };
-
-  // onNewTimePeriod
-  jovo.$badges.onNewTimePeriod = (
-    props: ReadonlyBadgeProperties,
-    systemProps: ReadonlyBadgeProperties,
-  ) => {
-    console.log('Badgerific:onNewTimePeriod');
-
-    if (systemProps.isNewDay) {
-      jovo.$badges.setValue('dailyWins', 0, true);
-    }
-  };
-
-  // onSessionStart
-  jovo.$badges.onSessionStart = (
-    props: ReadonlyBadgeProperties,
-    systemProps: ReadonlyBadgeProperties,
-  ) => {
-    console.log('Badgerific:onSessionStart');
-  };
-
-  // onSessionEnd
-  jovo.$badges.onSessionEnd = (
-    props: ReadonlyBadgeProperties,
-    systemProps: ReadonlyBadgeProperties,
-  ) => {
-    console.log('Badgerific:onSessionEnd');
-  };
-
-  // onGameStart
-  jovo.$badges.onGameStart = (
-    props: ReadonlyBadgeProperties,
-    systemProps: ReadonlyBadgeProperties,
-  ) => {
-    console.log('Badgerific:onGameStart');
-
-    if (props.hasSubscription) {
-      jovo.$badges.addValue('subscribedGames', 1, true);
-    }
-  };
-
-  // onGameEnd
-  jovo.$badges.onGameEnd = (
-    props: ReadonlyBadgeProperties,
-    systemProps: ReadonlyBadgeProperties,
-    reason: GameEndReason,
-  ) => {
-    console.log('Badgerific:onGameEnd');
-
-    if (reason === GameEndReason.Win) {
-      jovo.$badges.addValue('dailyWins', 1, true);
-    }
-  };
-});
+app.hook('before.dialogue.start', gameInitHook);
+app.hook('after.dialogue.start', badgeCallbacksHook);
 
 export { app };
 

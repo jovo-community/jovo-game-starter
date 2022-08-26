@@ -17,7 +17,16 @@ app.configure({
       pathToFile: '../db/db.json',
     }),
     new JovoDebugger({
-      ignoredProperties: ['$app', '$handleRequest', '$platform', '$badges', '$timeZone', '$playfab', '$playergen'],
+      ignoredProperties: [
+        '$app',
+        '$handleRequest',
+        '$platform',
+        '$badges',
+        '$timeZone',
+        '$playfab',
+        '$playergen',
+        '$game',
+      ],
     }),
   ],
 });

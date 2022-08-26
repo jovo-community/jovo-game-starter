@@ -1,5 +1,4 @@
 import { Component, BaseComponent, Intents } from '@jovotech/framework';
-import { GameEndReason } from 'badgerific';
 
 /*
 |--------------------------------------------------------------------------
@@ -16,13 +15,12 @@ export class GameComponent extends BaseComponent {
   private WIN_ANSWERS = 2;
 
   START() {
-    this.$badges.startGame();
+    this.$game.startGame();
+
     this.$component.data.questionCount = 0;
     this.$component.data.correctCount = 0;
 
-    this.$send(
-      'A game consists of 3 turns. You can answer with the correct or the wrong answer. Get 2 correct answers to win.',
-    );
+    this.$send(this.$t('gameIntro'));
     return this.GameTurn();
   }
 
@@ -30,27 +28,29 @@ export class GameComponent extends BaseComponent {
     if (this.$component.data.questionCount >= this.MAX_QUESTIONS) {
       return this.GameOver();
     }
-
-    return this.$send(`Question ${this.$component.data.questionCount + 1}. What is your answer?`);
+    const count = this.$component.data.questionCount + 1;
+    return this.$send(this.$t('question', { count }));
   }
 
   CorrectAnswerIntent() {
     this.$component.data.questionCount++;
     this.$component.data.correctCount++;
-    this.$send('Correct.');
+
+    this.$send(this.$t('correct'));
 
     return this.GameTurn();
   }
 
   WrongAnswerIntent() {
     this.$component.data.questionCount++;
-    this.$send('Wrong.');
+
+    this.$send(this.$t('wrong'));
 
     return this.GameTurn();
   }
 
   CancelGameIntent() {
-    this.$badges.endGame(GameEndReason.Cancel);
+    this.$game.cancelGame();
     return this.$resolve('cancel');
   }
 
@@ -58,20 +58,10 @@ export class GameComponent extends BaseComponent {
     this.$badges.setValue('correctAnswers', this.$component.data.correctCount);
 
     if (this.$component.data.correctCount >= this.WIN_ANSWERS) {
-      this.$badges.endGame(GameEndReason.Win);
-
-      // points for winning the game
-      
-      // this.$user.data.score += 10; 
-
-      let score = await this.$playfab.getStat('score') ?? 0;
-      score += 10;
-
-      await this.$playfab.updateStat('score', score);
-
+      await this.$game.winGame();
       return this.$resolve('won');
     } else {
-      this.$badges.endGame(GameEndReason.Lose);
+      this.$game.loseGame();
       return this.$resolve('lost');
     }
   }

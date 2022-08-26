@@ -56,7 +56,13 @@ const debuggerConfig = new DebuggerConfig({
       input: {
         intent: 'LeaderboardIntent',
       },
-    },    
+    },
+    {
+      label: 'Goodbye',
+      input: {
+        intent: 'END',
+      },
+    },       
   ],
 });
 

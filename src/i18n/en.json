@@ -1,0 +1,23 @@
+{
+    "translation": {
+        "welcome": "Welcome.",
+        "start": "To start a game say: start game",
+        "goodbye": "Goodbye!",
+        "whatNext": "What do you want to do now?",
+        "gameWin": "Congratulations! You won the game.",
+        "gameLose": "Sorry. You lost the game.",
+        "gameCancel": "You cancelled the game.",
+        "subscribed": "Subscribed.",
+        "listBadges": "You have earned {{earned.length}} badges.",
+        "getScore": "Your score is: {{score}}.",
+        "leaderboard": {
+            "rankTop": "Congratulations! You are ranked #1 on the leaderboard with a score of {{currentPlayer.StatValue}}.",
+            "rankOther": "Your rank on the leaderboard is {{currentPlayer.Position + 1}} with a score of {{currentPlayer.StatValue}}. You are {{closestDiff}} points behind the next player and need {{topDiff + 1}} points to earn the top spot.",
+            "error": "Sorry. Unable to access the leaderboard right now."
+        },
+        "gameIntro": "A game consists of 3 turns. You can answer with the correct or the wrong answer. Get 2 correct answers to win.",
+        "correct": "Correct.",
+        "wrong": "Wrong.",
+        "question": "Question {{count}}. What is your answer?"
+    }
+}
